@@ -380,7 +380,8 @@ def show_trip_planner():
     else:
                 # Show real AI-generated plan
                 st.markdown(trip_response['trip_plan'])
-
+             #initialize trip_map to none first
+                trip_map=None
             # Render Map in a separate container
                 trip_map = trip_maps.create_trip_map(trip_data['destination'], locations_data)
     if trip_map:
