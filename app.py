@@ -373,13 +373,16 @@ def show_trip_planner():
     st.markdown("### 📋 Your Personalized Itinerary")
 
           # Check if AI actually succeeded or fallback
-    if trip_response.get('insights') and " AI service unavailable" in trip_response['insights'][0]:
+    if  trip_response and trip_response.get('insights') and " AI service unavailable" in trip_response['insights'][0]:
              # Show fallback with a warning
               st.warning(" AI service unavailable. Showing a sample trip plan instead.")
               st.markdown(trip_response['trip_plan'])
+    elif    trip_response:
+           #show real ai-generated plan
+           st.markdown(trip_response['trip_plan'])
     else:
                 # Show real AI-generated plan
-                st.markdown(trip_response['trip_plan'])
+                st.info("No trip plan available.please generate a trip first")
              #initialize trip_map to none first
                 trip_map=None
             # Render Map in a separate container
