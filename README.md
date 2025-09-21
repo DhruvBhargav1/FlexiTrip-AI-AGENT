@@ -63,3 +63,25 @@ Analytics Table → Events for insights (trip_created, booking_saved, etc.)
 📖 Why FlexiTrip AI?
 
 Travel planning is traditionally fragmented across search engines, booking sites, and scattered itineraries. FlexiTrip AI brings everything together: AI understands your preferences, suggests optimized plans, stores your bookings, and even learns from your feedback. With LLMs + MCP + Cloud-ready design, it’s not just a trip planner—it’s a step toward an intelligent travel assistant at scale.  
+
+📂 Project Structure
+flexitrip-ai/
+│── app.py                # Streamlit frontend UI
+│── mcp_server.py         # MCP tools for AI-agent (weather, hotels, events, routes)
+│── ai_agent.py           # AI logic & context-aware trip planner
+│── database.py           # SQLite DB for trips, users, bookings
+│── maps_integration.py   # Maps + route optimization
+│── payment_system.py     # Booking & payment handling
+│── requirements.txt      # Python dependencies
+│── README.md             # Project documentation
+
+
+
+📂 Project Files  
+
+- app.py → The main Streamlit app (frontend UI).  
+- ai_agent.py → The AI brain that generates trip plans.  
+- mcp_server.py → Tools to fetch real-time data (weather, hotels, events, maps).  
+- database.py → Saves trips, bookings, and analytics in SQLite.  
+- maps_integration.py → Route optimization and map visuals.  
+- payment_system.py → Handles booking + payment details.  
