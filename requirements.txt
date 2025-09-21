@@ -40,3 +40,4 @@ urllib3==2.5.0
 # Added for Streamlit and Plotly
 streamlit==1.29.0
 plotly==5.16.0
+
