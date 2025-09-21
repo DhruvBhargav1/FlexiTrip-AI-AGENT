@@ -18,9 +18,11 @@ class TripMaps:
             
             # Create map centered on destination
             trip_map = folium.Map(
-                location=dest_coords,
-                zoom_start=12,
-                tiles='OpenStreetMap'
+                 location=dest_coords,
+                 zoom_start=12,
+                 tiles='OpenStreetMap',
+                 width='90%',      # restrict width
+                 height='500px'    # restrict height
             )
             
             # Add markers for each location
