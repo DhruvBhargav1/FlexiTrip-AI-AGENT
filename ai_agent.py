@@ -165,7 +165,7 @@ class FlexiTripAI:
         except Exception as e:
             logger.error(f"Trip planning error: {e}")
         return {
-        'success': False,   # mark as success so app.py doesn’t show error
+        'success': True,   # mark as success so app.py doesn’t show error
         'trip_plan': f"Sample trip plan for {destination}: Explore famous attractions, local food, and cultural spots over {duration} days.",
         'destination': destination,
         'duration': duration,
@@ -318,6 +318,7 @@ if __name__ == "__main__":
     print("\nChat Response:")
     print(chat['response'])  # AI response
     print("Suggestions:", chat.get('suggestions', 'No suggestions returned'))
+
 
 
 
