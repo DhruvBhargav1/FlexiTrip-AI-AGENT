@@ -158,7 +158,6 @@ class FlexiTripAI:
                     f"💰 Optimized your ₹{budget:,} budget efficiently", 
                     "🌟 Included authentic local experiences",
                     f"🎯 Perfect match for {interests_text} interests"
-                    'error': f"Failed to generate trip plan. This may happen if your Gemini daily limit is exceeded. Please try again tomorrow or use a new API key.",
 
                 ]
             }
@@ -319,5 +318,6 @@ if __name__ == "__main__":
     print("\nChat Response:")
     print(chat['response'])  # AI response
     print("Suggestions:", chat.get('suggestions', 'No suggestions returned'))
+
 
 
