@@ -19,7 +19,7 @@ numpy>=1.26.0,<2.0.0
 openpyxl==3.1.5
 pandas==2.3.0
 proto-plus==1.26.1
-protobuf>=3.20.0,<4.0.0
+protobuf>=5.26.1,<6.0.0
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
 pydantic==2.11.9
@@ -40,6 +40,7 @@ urllib3==2.5.0
 # Added for Streamlit and Plotly
 streamlit==1.29.0
 plotly==5.16.0
+
 
 
 
