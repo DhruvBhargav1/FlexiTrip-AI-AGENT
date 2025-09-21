@@ -370,26 +370,26 @@ def show_trip_planner():
                 'timing': 'Flexible'
             }]
             # --- Display AI-generated trip text first ---
-          st.markdown("### 📋 Your Personalized Itinerary")
+    st.markdown("### 📋 Your Personalized Itinerary")
 
           # Check if AI actually succeeded or fallback
-         if trip_response.get('insights') and "⚠️ AI service unavailable" in trip_response['insights'][0]:
-    # Show fallback with a warning
-    st.warning("⚠️ AI service unavailable. Showing a sample trip plan instead.")
-    st.markdown(trip_response['trip_plan'])
-else:
-    # Show real AI-generated plan
-    st.markdown(trip_response['trip_plan'])
+    if trip_response.get('insights') and " AI service unavailable" in trip_response['insights'][0]:
+             # Show fallback with a warning
+              st.warning(" AI service unavailable. Showing a sample trip plan instead.")
+              st.markdown(trip_response['trip_plan'])
+    else:
+                # Show real AI-generated plan
+                st.markdown(trip_response['trip_plan'])
 
-        # Render Map in a separate container
-        trip_map = trip_maps.create_trip_map(trip_data['destination'], locations_data)
-        if trip_map:
-            with st.container():
-                st.markdown("### 🗺️ Trip Map")
-                from streamlit_folium import st_folium
-                st_folium(trip_map, width=800, height=400)
+            # Render Map in a separate container
+                trip_map = trip_maps.create_trip_map(trip_data['destination'], locations_data)
+    if trip_map:
+      with st.container():
+        st.markdown("### 🗺️ Trip Map")
+        from streamlit_folium import st_folium
+        st_folium(trip_map, width=800, height=400)
 
-        # Next steps buttons
+# Next steps buttons
         st.markdown("---")
         st.markdown("### Next Steps")
         col1, col2, col3 = st.columns(3)
@@ -655,5 +655,6 @@ def show_booking_center():
 
 if __name__ == "__main__":
     main()
+
 
 
