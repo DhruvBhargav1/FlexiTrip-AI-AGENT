@@ -15,11 +15,11 @@ grpcio==1.75.0
 grpcio-status==1.71.2
 httplib2==0.31.0
 idna==3.10
-numpy==2.3.0
+numpy==1.24.4
 openpyxl==3.1.5
-pandas==2.3.0
+pandas==2.2.4
 proto-plus==1.26.1
-protobuf==5.29.5
+protobuf==4.23.3
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
 pydantic==2.11.9
@@ -40,4 +40,5 @@ urllib3==2.5.0
 # Added for Streamlit and Plotly
 streamlit==1.29.0
 plotly==5.16.0
+
 
