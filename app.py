@@ -267,7 +267,7 @@ def show_trip_planner():
                 ["Heritage & Culture", "Adventure Sports", "Food & Cuisine", "Photography", 
                  "Nature & Wildlife", "Spiritual", "Art & Craft", "Nightlife", "Beach", "Mountains"]
             )
-            travel_style = st.selectbox("✨ Travel Style",["Budget", "Comfort", "Luxury", "Backpacking"])
+            travel_style = st.selectbox("✨ Travel Style", ["Budget", "Comfort", "Luxury", "Backpacking"])
             group_size = st.number_input("👥 Group Size", min_value=1, max_value=20, value=2)
 
         submitted = st.form_submit_button("🚀 Generate AI Trip Plan", type="primary", use_container_width=True)
@@ -320,11 +320,13 @@ def show_trip_planner():
 
                         st.success("🎉 Your AI-Generated Trip Plan is Ready!")
 
+                        # Show AI Insights
                         if 'insights' in trip_response:
                             st.markdown("### 🧠 AI Insights")
                             for insight in trip_response['insights']:
                                 st.info(insight)
 
+                        # Show Itinerary
                         st.markdown("### 📋 Your Personalized Itinerary")
                         st.markdown(trip_response['trip_plan'])
 
@@ -349,7 +351,7 @@ def show_trip_planner():
     if st.session_state.get('current_trip'):
         trip_data = st.session_state.current_trip['data']
         trip_response = st.session_state.current_trip['ai_response']
-
+        locations_data=[]
         # Extract locations safely
         try:
             if isinstance(trip_response.get('locations'), list):
@@ -367,12 +369,17 @@ def show_trip_planner():
                 'cost': 0,
                 'timing': 'Flexible'
             }]
+            # --- Display AI-generated trip text first ---
+            st.markdown("### 📋 Your Personalized Itinerary")
+            st.markdown(trip_response['trip_plan'])
 
-        # Render Map
+        # Render Map in a separate container
         trip_map = trip_maps.create_trip_map(trip_data['destination'], locations_data)
         if trip_map:
-            from streamlit_folium import st_folium
-            st_folium(trip_map, width=900, height=600)
+            with st.container():
+                st.markdown("### 🗺️ Trip Map")
+                from streamlit_folium import st_folium
+                st_folium(trip_map, width=900, height=600)
 
         # Next steps buttons
         st.markdown("---")
@@ -399,8 +406,7 @@ def show_trip_planner():
                     st.success("Booking initiated! Go to Booking Center to complete.")
                 else:
                     st.error("Booking initiation failed.")
-
-
+                    
 def show_ai_chat():
     """AI Assistant Chat Page"""
     st.markdown("# 💬 AI Travel Assistant")
@@ -481,8 +487,8 @@ def show_my_trips():
     
     # Display trips
     for trip in trips:
-        with st.expander(f"🗺️ {trip['title']} - {trip['destination']}", expanded=False):
-            col1, col2 = st.columns(2)
+            with st.expander(f"🗺️ {trip['title']} - {trip['destination']}", expanded=False):
+             col1, col2 = st.columns(2)
             
             with col1:
                 st.write(f"**Duration:** {trip['duration']} days")
