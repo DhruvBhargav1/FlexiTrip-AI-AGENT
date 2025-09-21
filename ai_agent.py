@@ -177,6 +177,7 @@ class FlexiTripAI:
             "⚠️ AI service unavailable, showing sample trip",
             "🌍 Explore major attractions and food spots",
             "💡 Upgrade API key for full personalized plan"
+            "IN CASE - GEMINI EXCEED THE LIMIT THIS IS THE SAMPLE"
         ]
     }
     
@@ -318,6 +319,7 @@ if __name__ == "__main__":
     print("\nChat Response:")
     print(chat['response'])  # AI response
     print("Suggestions:", chat.get('suggestions', 'No suggestions returned'))
+
 
 
 
