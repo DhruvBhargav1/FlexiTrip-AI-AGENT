@@ -379,7 +379,7 @@ def show_trip_planner():
             with st.container():
                 st.markdown("### 🗺️ Trip Map")
                 from streamlit_folium import st_folium
-                st_folium(trip_map, width=900, height=600)
+                st_folium(trip_map, width=800, height=400)
 
         # Next steps buttons
         st.markdown("---")
@@ -647,3 +647,4 @@ def show_booking_center():
 
 if __name__ == "__main__":
     main()
+
